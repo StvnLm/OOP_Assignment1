@@ -17,13 +17,13 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  hello_test
-  ./test/hello_test.cpp
+  patient_test
+  ./test/patient_test.cpp
 )
 target_link_libraries(
-  hello_test
+  patient_test
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(patient_test)

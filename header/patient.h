@@ -22,5 +22,3 @@ private:
 	string gender;
 	int age;
 };
-
-#endif

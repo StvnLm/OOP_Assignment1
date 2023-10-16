@@ -1,4 +1,5 @@
 .vs
 build
+src/*.gcno
 x64
 GroupProject1*
