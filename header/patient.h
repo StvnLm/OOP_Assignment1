@@ -16,6 +16,9 @@ public:
 	bool set_name(string n);
 	bool set_gender(char n);
 	bool set_age(int n);
+	string get_name();
+	string get_gender();
+	int get_age();
 
 private:
 	string name;

@@ -1,5 +1,4 @@
 #include "../header/patient.h"
-#include <tuple>
 
 using namespace std;
 
@@ -10,7 +9,6 @@ Patient::Patient(string name, int age, char gender) {
 }
 
 Patient::~Patient() {
-	// EmptyDeconstructor
 }
 
 tuple<string, string, int> Patient::get_patient_info() {
@@ -30,4 +28,14 @@ bool Patient::set_gender(char gender) {
 bool Patient::set_age(int age) {
 	this->age = age;
 	return age > 0;
+}
+
+string Patient::get_name() {
+	return this->name;
+}
+string Patient::get_gender() {
+	return this->gender;
+}
+int Patient::get_age() {
+	return this->age;
 }
