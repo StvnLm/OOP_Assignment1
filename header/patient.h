@@ -15,10 +15,17 @@ public:
 	tuple<string, string, int> get_patient_info();
 	bool set_name(string n);
 	bool set_gender(char n);
+	bool set_location(string n);
 	bool set_age(int n);
-
+	string get_name();
+	string get_gender();
+	string get_location();
+	int get_age();
 private:
 	string name;
 	string gender;
 	int age;
+	string location = "";
 };
+
+#endif
