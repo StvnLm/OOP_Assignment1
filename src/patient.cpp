@@ -7,6 +7,7 @@ Patient::Patient(string name, int age, char gender) {
 	this->name = name;
 	this->age = age;
 	this->gender = gender;
+	this->location = "";
 }
 
 Patient::~Patient() {
@@ -31,3 +32,19 @@ bool Patient::set_age(int age) {
 	this->age = age;
 	return age > 0;
 }
+
+bool Patient::set_location(string location) {
+	this->location = location; 
+	return this->location == "";
+}
+
+string Patient::get_name() {
+	return this->name;
+}
+string Patient::get_gender() {
+	return this->gender;
+}
+int Patient::get_age() {
+	return this->age;
+}
+

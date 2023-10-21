@@ -14,4 +14,4 @@ TEST(PatientTest, SetAge) {
     Patient patient("Alice", 25, 'F');
     EXPECT_TRUE(patient.set_age(26));
     EXPECT_EQ(patient.get_age(), 26);
-}
+}BCB7 - 688A
