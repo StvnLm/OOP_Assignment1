@@ -10,8 +10,9 @@ using namespace std;
 
 class Patient {
 public:
-	Patient(string name, int age, char gender);
+	Patient();
 	~Patient();
+	Patient(string name, int age, char gender);
 	tuple<string, string, int> get_patient_info();
 	bool set_name(string n);
 	bool set_gender(char n);
