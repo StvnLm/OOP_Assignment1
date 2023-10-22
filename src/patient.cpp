@@ -25,7 +25,7 @@ bool Patient::set_name(string n) {
 
 bool Patient::set_gender(char g) {
 	gender = g;
-	return (tolower(gender) == 'm' || tolower(gender) == 'f');
+	return (tolower(gender) != 'm' || tolower(gender) != 'f');
 }
 
 bool Patient::set_age(int a) {
@@ -35,12 +35,12 @@ bool Patient::set_age(int a) {
 
 bool Patient::set_location(string l) {
 	location = l; 
-	return location == "";
+	return location != "";
 }
 
 bool Patient::set_ailment(string a) {
 	ailment = a;
-	return ailment == "";
+	return ailment != "";
 }
 
 string Patient::get_name() {
@@ -55,4 +55,8 @@ int Patient::get_age() {
 
 string Patient::get_ailment() {
 	return ailment;
+}
+
+string Patient::get_location() {
+	return location;
 }
