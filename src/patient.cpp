@@ -3,6 +3,9 @@
 
 using namespace std;
 
+Patient::Patient() : name(""),  age(0),  gender("") {
+}
+
 Patient::Patient(string name, int age, char gender) {
 	this->name = name;
 	this->age = age;
