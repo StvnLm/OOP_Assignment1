@@ -5,7 +5,8 @@
 #include "patient.h"
 #include <iostream>
 #include <string>
-#include <list>
+//#include <list>
+#include <vector>
 
 using namespace std;
 
@@ -19,13 +20,13 @@ struct Patient_services {
 class Inpatient : public Patient {
 public:
 	Inpatient();
-	Inpatient(int room_number, list<Patient_services> n);
+	Inpatient(int room_number, vector<Patient_services> n);
 	bool set_room_number(int n);
-	bool set_services_required(list<Patient_services> n);
+	bool set_services_required(vector<Patient_services> n);
 	int get_room_number();
-	list<Patient_services> get_services_required();
+	vector<Patient_services> get_services_required();
 private:
-	list<Patient_services> services_required;
+	vector<Patient_services> services_required;
 	int room_number;
 };
 
