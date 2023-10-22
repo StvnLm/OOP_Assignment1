@@ -15,46 +15,44 @@ Patient::~Patient() {
 }
 
 tuple<string, char, int> Patient::get_patient_info() {
-	return make_tuple(this->name, this->gender, this->age);
+	return make_tuple(name, gender, age);
 }
 
-bool Patient::set_name(string name) {
-	this->name = name;
+bool Patient::set_name(string n) {
+	name = n;
 	return name.size() > 0;
 }
 
-bool Patient::set_gender(char gender) {
-	this->gender = gender;
+bool Patient::set_gender(char g) {
+	gender = g;
 	return (tolower(gender) == 'm' || tolower(gender) == 'f');
 }
 
-bool Patient::set_age(int age) {
-	this->age = age;
+bool Patient::set_age(int a) {
+	age = a;
 	return age > 0;
 }
 
-bool Patient::set_location(string location) {
-	this->location = location; 
-	return this->location == "";
+bool Patient::set_location(string l) {
+	location = l; 
+	return location == "";
 }
 
-
-bool Patient::set_ailment(string ailment) {
-	this->ailment = ailment;
-	return this->ailment == "";
+bool Patient::set_ailment(string a) {
+	ailment = a;
+	return ailment == "";
 }
 
 string Patient::get_name() {
-	return this->name;
+	return name;
 }
 char Patient::get_gender() {
-
-	return this->gender;
+	return gender;
 }
 int Patient::get_age() {
-	return this->age;
+	return age;
 }
 
 string Patient::get_ailment() {
-	return this->ailment;
+	return ailment;
 }
