@@ -5,7 +5,7 @@
 
 TEST(PatientTest, setPatientValues) {
 	Patient patient;
-
+  
 	EXPECT_TRUE(patient.set_name("Jane Doe"));
 	EXPECT_TRUE(patient.set_age(100));
 	EXPECT_TRUE(patient.set_gender('F'));
