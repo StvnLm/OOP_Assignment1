@@ -38,6 +38,7 @@ bool Patient::set_location(string location) {
 	return this->location == "";
 }
 
+
 bool Patient::set_ailment(string ailment) {
 	this->ailment = ailment;
 	return this->ailment == "";
@@ -47,6 +48,7 @@ string Patient::get_name() {
 	return this->name;
 }
 char Patient::get_gender() {
+
 	return this->gender;
 }
 int Patient::get_age() {
