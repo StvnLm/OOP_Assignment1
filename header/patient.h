@@ -11,7 +11,7 @@ using namespace std;
 class Patient {
 public:
 	Patient();
-	~Patient();
+	// ~Patient();
 	Patient(string name, int age, char gender);
 	tuple<string, char, int> get_patient_info();
 	bool set_name(string n);

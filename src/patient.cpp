@@ -1,9 +1,8 @@
 #include "../header/patient.h"
 #include <tuple>
+#include "../header/invalidAgeException.h"
 
 using namespace std;
-
-//Patient(string name, int age, char gender);
 
 Patient::Patient() : name("Jane Doe"),  age(0),  gender('N'), ailment("NONE") {
 }
@@ -11,8 +10,8 @@ Patient::Patient() : name("Jane Doe"),  age(0),  gender('N'), ailment("NONE") {
 Patient::Patient(string n, int a, char g) : name(n), age(a), gender(g) {
 }
 
-Patient::~Patient() {
-}
+// Patient::~Patient() {
+// }
 
 tuple<string, char, int> Patient::get_patient_info() {
 	return make_tuple(name, gender, age);
@@ -29,6 +28,9 @@ bool Patient::set_gender(char g) {
 }
 
 bool Patient::set_age(int a) {
+	if (a < 0) {
+		throw InvalidAgeException("Age cannot be negative");
+	}
 	age = a;
 	return age > 0;
 }
@@ -46,9 +48,11 @@ bool Patient::set_ailment(string a) {
 string Patient::get_name() {
 	return name;
 }
+
 char Patient::get_gender() {
 	return gender;
 }
+
 int Patient::get_age() {
 	return age;
 }
