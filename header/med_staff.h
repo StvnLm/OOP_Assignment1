@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef STAFF_H
-#define STAFF_H
+#ifndef MED_STAFF_H
+#define MED_STAFF_H
 
 #include<iostream>
 #include<string>
