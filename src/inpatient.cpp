@@ -8,6 +8,9 @@ Inpatient::Inpatient() : room_number(0), services_required() {
 Inpatient::Inpatient(int rn, vector<Patient_services> sr) : room_number(rn), services_required(sr) {
 }
 
+// Inpatient::~Inpatient() {
+// }
+
 bool Inpatient::set_room_number(int n) {
 	room_number = n;
 	return room_number > 0;
