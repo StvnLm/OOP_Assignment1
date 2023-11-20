@@ -7,11 +7,8 @@ using namespace std;
 Patient::Patient() : name("Jane Doe"),  age(0),  gender('N'), ailment("NONE") {
 }
 
-Patient::Patient(string n, int a, char g) : name(n), age(a), gender(g) {
+Patient::Patient(string n, int a, char g, string ai) : name(n), age(a), gender(g), ailment(ai) {
 }
-
-// Patient::~Patient() {
-// }
 
 tuple<string, char, int> Patient::get_patient_info() {
 	return make_tuple(name, gender, age);

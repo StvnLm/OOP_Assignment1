@@ -20,7 +20,7 @@ struct Patient_services {
 class Inpatient : public Patient {
 public:
 	Inpatient();
-	Inpatient(int room_number, vector<Patient_services> n);
+	Inpatient(Patient p, int room_number, vector<Patient_services>& services);
 	bool set_room_number(int n);
 	bool set_services_required(vector<Patient_services> n);
 	int get_room_number();
