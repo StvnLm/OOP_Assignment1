@@ -3,3 +3,5 @@ build
 src/*.gcno
 x64
 GroupProject1*
+.vscode
+*.exe
