@@ -1,11 +1,13 @@
 #include "../header/inpatient.h"
+#include <string>
 
 using namespace std;
 
 Inpatient::Inpatient() : room_number(0), services_required() {
 }
 
-Inpatient::Inpatient(int rn, vector<Patient_services> sr) : room_number(rn), services_required(sr) {
+Inpatient::Inpatient(Patient p, int rn, vector<Patient_services>& services) : Patient(p), services_required(services), room_number(rn) {
+
 }
 
 // Inpatient::~Inpatient() {
