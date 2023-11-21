@@ -10,6 +10,7 @@ Appointment::Appointment(){
     appointmentTable[i]->hour = 0;
     appointmentTable[i]->min = 0;
     appointmentTable[i]->patient = nullptr;
+    appointmentTable[i]->medicalStaff = nullptr;
     appointmentTable[i]->next = nullptr;
   }
 }
@@ -32,7 +33,7 @@ int Appointment::calculateIndex(int day, int month, int year){
   return index;
 };
 
-void Appointment::addAppointment(int day, int month, int year, int hour, int min, Patient& patient){
+void Appointment::addAppointment(int day, int month, int year, int hour, int min, Patient& patient, MedicalStaff& staff){
   int index = calculateIndex(day, month, year);
   if (appointmentTable[index]->patient == nullptr){ //base case if index is empty
     appointmentTable[index]->month = month;
@@ -41,6 +42,7 @@ void Appointment::addAppointment(int day, int month, int year, int hour, int min
     appointmentTable[index]->hour = hour;
     appointmentTable[index]->min = min;
     appointmentTable[index]->patient = &patient;
+    appointmentTable[index]->medicalStaff = &staff;
   }
   else {
     appointment* apptPtr = appointmentTable[index];
@@ -51,6 +53,7 @@ void Appointment::addAppointment(int day, int month, int year, int hour, int min
     newPtr->hour = hour;
     newPtr->min = min;
     newPtr->patient = &patient;
+    newPtr->medicalStaff = &staff;
     newPtr->next = nullptr;
     while (apptPtr->next != nullptr)
     {
@@ -59,6 +62,8 @@ void Appointment::addAppointment(int day, int month, int year, int hour, int min
     apptPtr->next = newPtr;
   }
 }
+
+// void Appointment
 
 void Appointment::printAppointments(){
   appointment* ptr;
@@ -71,6 +76,7 @@ void Appointment::printAppointments(){
       std::cout << "Appointment day: " << ptr->month << "/" << ptr->day << "/" << ptr->year << std::endl;
       std::cout << "Appointment time: " << ptr->hour << ":" << ptr->min << std::endl;
       std::cout << "Patient name: " << ptr->patient->get_name() << std::endl;
+      std::cout << "Assigned staff member: " << ptr->medicalStaff->getSpecialty() << " " << ptr->medicalStaff->getName() << std::endl;
       ptr = ptr->next;
     }
   }
