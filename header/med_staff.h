@@ -5,6 +5,8 @@
 
 #include<iostream>
 #include<string>
+#include<vector>
+#include<array>
 
 using namespace std;
 
@@ -13,7 +15,7 @@ class MedicalStaff
 protected:
 	string name;
 	string specialty;
-	bool availability = true; //<-- this and related functions will probably be altered so multiple appointments at different times are possible for one staff member
+	vector <array<int, 3>> schedule;  //<-- this and related functions will probably be altered so multiple appointments at different times are possible for one staff member
 public:
 	MedicalStaff(string n, string s)
 	{
@@ -21,9 +23,14 @@ public:
 		specialty = s;
 	}
 
-	void changeAvailability()
+	bool checkAvailability(int d, int h, int m)
 	{
-		availability = false;
+		for (int i = 0; i < schedule.size(); i++)
+		{
+			if (schedule[i][0] == d && schedule[i][1] == h && schedule[i][2] == m) return false; //if scheduled date already exists
+		}
+		schedule.push_back({ {d, h, m} });
+		return true;
 	}
 
 	string getName() const
@@ -36,9 +43,12 @@ public:
 		return specialty;
 	}
 
-	bool getAvailability() const
+	void displaySchedule() const
 	{
-		return availability;
+		for (int i = 0; i < schedule.size(); i++)
+		{
+			cout << "\n" << "on day " << schedule[i][0] << " at " << schedule[i][1] << ":" << schedule[i][2];
+		}
 	}
 };
 
