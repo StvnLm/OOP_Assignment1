@@ -33,7 +33,7 @@ int main() {
 
     Doctor doctorJohn("John Washington", "Doctor");
     Nurse nurseJessica("Jessica Corn", "Nurse");
-    MedicalStaff resMike("Mike Pence", "Residen tDoctor");
+    MedicalStaff resMike("Mike Pence", "Resident Doctor");
 
     myAppointments.addAppointment(12, 12, 2023, 1, 30, patientSteve, doctorJohn);
     myAppointments.addAppointment(1, 9, 2022, 2, 45, patientBob, doctorJohn);
@@ -43,3 +43,4 @@ int main() {
     myAppointments.printAppointments();
     return 0;
 }
+
