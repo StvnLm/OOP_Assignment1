@@ -7,7 +7,11 @@ Inpatient::Inpatient() : room_number(0), services_required() {
 }
 
 Inpatient::Inpatient(Patient p, int rn, vector<Patient_services>& services) : Patient(p), services_required(services), room_number(rn) {
+
 }
+
+// Inpatient::~Inpatient() {
+// }
 
 bool Inpatient::set_room_number(int n) {
 	room_number = n;

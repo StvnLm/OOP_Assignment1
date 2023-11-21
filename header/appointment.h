@@ -7,15 +7,11 @@
 class Appointment {
   public:
     Appointment();
-    int calculateIndex(int day, int month, int year);
-    void addAppointment(int day, int month, int year, int hour, int min, Patient& patient);
+    void addAppointment(int day, int hour, int min, Patient& patient);
     void printAppointments();
   private:
     static const int appointmentTableSize = 365;
     struct appointment {
-      int month;
-      int day;
-      int year;
       int hour;
       int min;
       Patient* patient;

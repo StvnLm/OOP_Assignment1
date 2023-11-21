@@ -31,12 +31,10 @@ int main() {
     Inpatient inpatientChris(patientChris, 13, chrisInpatientTreatments);
    
     Appointment myAppointments;
-
-    myAppointments.addAppointment(12, 12, 2023, 1, 30, patientSteve);
-    myAppointments.addAppointment(1, 9, 2022, 2, 45, patientBob);
-    myAppointments.addAppointment(1, 9, 2022, 3, 45, patientSteve);
-    myAppointments.addAppointment(22, 8, 2019, 14, 15, patientJoanna);
-    myAppointments.addAppointment(11, 4, 2015, 16, 55, inpatientChris);
+    myAppointments.addAppointment(12, 1, 30, patientSteve);
+    myAppointments.addAppointment(9, 2, 45, patientBob);
+    myAppointments.addAppointment(125, 14, 15, patientJoanna);
+    myAppointments.addAppointment(256, 16, 55, inpatientChris);
     myAppointments.printAppointments();
     return 0;
 }
