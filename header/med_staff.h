@@ -15,7 +15,7 @@ class MedicalStaff
 protected:
 	string name;
 	string specialty;
-	vector <array<int, 3>> schedule;  //<-- this and related functions will probably be altered so multiple appointments at different times are possible for one staff member
+	vector <array<int, 3>> schedule;
 public:
 	MedicalStaff(string n, string s)
 	{
