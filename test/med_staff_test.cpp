@@ -10,7 +10,7 @@ int main()
 	map<string, MedicalStaff*> staff;
 	string appoint;
 	int day, hour, min;
-
+  
 	staff = { {"Jake", new Doctor("Jake", "Neurologist")}, 
 			{"Kyle", new Doctor("Kyle", "Surgeon")},
 			{"Sasha", new Nurse("Sasha", "Critical Care")},
@@ -20,6 +20,7 @@ int main()
 			{"Zella", new Nurse("Zella", "Intensive Care Medicine")},
 			{"Patrica", new Doctor("Patrica", "Anesthesiology")},
 			{"Alexander", new Doctor("Alexander", "Emergency Medicine")} };
+  
 	while (true)
 	{
 		for (auto it = staff.cbegin(); it != staff.cend(); ++it) //for displaying all staff members
