@@ -125,3 +125,9 @@ Test project C:/Users/Steven/Desktop/OOP/GroupProject1/build
 
 Total Test time (real) =   0.02 sec
 ```
+
+Running the application
+```
+# Compile SRC files with G++
+g++ -o main.exe .\src\*; .\main.exe
+```
