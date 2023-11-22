@@ -6,7 +6,8 @@ using namespace std;
 Inpatient::Inpatient() : room_number(0), services_required() {
 }
 
-Inpatient::Inpatient(Patient p, int rn, vector<Patient_services>& services) : Patient(p), services_required(services), room_number(rn) {
+Inpatient::Inpatient(string name, int age, char gender, string ailment, int rn, vector<Patient_services>& services) :
+ 										 Patient(name, age, gender, ailment), services_required(services), room_number(rn) {
 }
 
 bool Inpatient::set_room_number(int n) {
