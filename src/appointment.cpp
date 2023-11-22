@@ -55,6 +55,7 @@ void Appointment::addAppointment(int day, int month, int year, int hour, int min
     newPtr->patient = &patient;
     newPtr->medicalStaff = &staff;
     newPtr->next = nullptr;
+    
     while (apptPtr->next != nullptr)
     {
       apptPtr = apptPtr->next;
@@ -63,7 +64,57 @@ void Appointment::addAppointment(int day, int month, int year, int hour, int min
   }
 }
 
-// void Appointment
+void Appointment::removeAppointment(int day, int month, int year, int hour, int min, Patient& patient, MedicalStaff& staff){
+  appointment* delPtr;
+  appointment* ptr1;
+  appointment* ptr2;
+  string patientName = patient.get_name();
+  string staffName = staff.getName();
+
+  int index = calculateIndex(day, month, year);
+
+  // Base case
+  if (appointmentTable[index]->patient == nullptr){
+    std::cout << "Appointment not found." << std::endl;
+  }
+
+  // Case 1 (appointment is first and only value in bucket)
+  if (appointmentTable[index]->patient == &patient &&
+      appointmentTable[index]->medicalStaff == &staff &&
+      appointmentTable[index]->hour == hour &&
+      appointmentTable[index]->min == min &&
+      appointmentTable[index]->next == nullptr){
+      appointmentTable[index]->hour = 0;
+      appointmentTable[index]->min = 0;
+      appointmentTable[index]->patient = nullptr;
+      appointmentTable[index]->medicalStaff = nullptr;
+      std::cout << day << "/" << month << "/" << year << " appointment has been deleted for " << patient.get_name() << std::endl;
+      }
+  else {
+    ptr1 = appointmentTable[index]->next;
+    ptr2 = appointmentTable[index];
+
+    while (ptr1 != nullptr && 
+          ptr1->patient != &patient &&
+          ptr1->medicalStaff != &staff &&
+          ptr1->hour != hour &&
+          ptr1->min != min) {
+            ptr2 = ptr1;
+            ptr1 = ptr1->next;
+          }
+
+    if (ptr1 == nullptr) {
+      std::cout << "Patient appointment not found" << std::endl;
+    }
+    else {
+      delPtr = ptr1;
+      ptr1 = ptr1->next;
+      ptr2->next = ptr1;
+      delete delPtr;
+      std::cout << day << "/" << month << "/" << year << " appointment has been deleted for " << patient.get_name() << std::endl;
+    }
+  }
+};
 
 void Appointment::printAppointments(){
   appointment* ptr;
