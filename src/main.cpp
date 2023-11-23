@@ -26,6 +26,7 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
         std::cout << std::endl;
+
         switch (choice) {
             case 1: {
                 string name;
@@ -60,21 +61,102 @@ int main() {
                 cout << "Enter staff role/title: ";
                 cin >> role;
                 if (role == "Doctor") {
-                    MedicalStaff staffMember(name, role);
-                    medicalStaffList.push_back(staffMember);
+                    Doctor doctor(name, role);
+                    medicalStaffList.push_back(doctor);
                 }
+                else if (role == "Nurse") {
+                    Nurse nurse(name, role);
+                    medicalStaffList.push_back(nurse);
+                }
+                else {
+                    MedicalStaff staff(name, role); 
+                    medicalStaffList.push_back(staff);
+                    }
                 break;
             }
             case 3: // Create Treatment 
                 break;
             case 4: // Create Appointment
+            {
+                int patientIndex = 0;
+                int staffIndex = 0;
+                int month = 0;
+                int day = 0;
+                int year = 0;
+                int hr = 0;
+                int min = 0;
+                Patient* patientPtr = nullptr;
+                MedicalStaff* staffPtr = nullptr;
+
+                cout << "Enter patient # to schedule for the appointment: " << std::endl;
+                for (int i = 0; i < patientList.size(); i++) {
+                    std::cout << i << ". " << patientList[i].get_name() << std::endl;
+                }
+                cin >> patientIndex;
+                patientPtr = &patientList[patientIndex];
+
+                cout << "Enter staff # to schedule for the appointment: " << std::endl;
+                for (int i = 0; i < medicalStaffList.size(); i++) {
+                    std::cout << i << ". " << medicalStaffList[i].getName() << std::endl;
+                }
+                cin >> staffIndex;
+                staffPtr = &medicalStaffList[staffIndex];
+
+                cout << "Enter month to schedule for appointment: ";
+                cin >> month;
+                cout << "Enter day to schedule for appointment: ";
+                cin >> day;
+                cout << "Enter year to schedule for appointment: ";
+                cin >> year;
+                cout << "Enter hour to schedule for appointment: ";
+                cin >> hr;
+                cout << "Enter minutes to schedule for appointment: ";
+                cin >> min;
+                myAppointments.addAppointment(day, month, year, hr, min, *patientPtr, *staffPtr);
                 break;
+            }
             case 5:
                 myAppointments.printAppointments();
                 break;
             case 6: //Remove Appointment
-                // Scan through buckets and return value based on hash index
+            {
+                int patientIndex = 0;
+                int staffIndex = 0;
+                int month = 0;
+                int day = 0;
+                int year = 0;
+                int hr = 0;
+                int min = 0;
+                Patient* patientPtr = nullptr;
+                MedicalStaff* staffPtr = nullptr;
+
+                cout << "Enter patient # to remove for the appointment: " << std::endl;
+                for (int i = 0; i < patientList.size(); i++) {
+                    std::cout << i << ". " << patientList[i].get_name() << std::endl;
+                }
+                cin >> patientIndex;
+                patientPtr = &patientList[patientIndex];
+
+                cout << "Enter staff # to remove for the appointment: " << std::endl;
+                for (int i = 0; i < medicalStaffList.size(); i++) {
+                    std::cout << i << ". " << medicalStaffList[i].getName() << std::endl;
+                }
+                cin >> staffIndex;
+                staffPtr = &medicalStaffList[staffIndex];
+
+                cout << "Enter month to schedule for appointment: ";
+                cin >> month;
+                cout << "Enter day to schedule for appointment: ";
+                cin >> day;
+                cout << "Enter year to schedule for appointment: ";
+                cin >> year;
+                cout << "Enter hour to schedule for appointment: ";
+                cin >> hr;
+                cout << "Enter minutes to schedule for appointment: ";
+                cin >> min;
+                myAppointments.removeAppointment(day, month, year, hr, min, *patientPtr, *staffPtr);
                 break;
+            }
             case 7:
                 cout << "Exiting the program. Goodbye!" << endl;
                 break;
