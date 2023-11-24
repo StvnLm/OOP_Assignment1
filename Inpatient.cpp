@@ -1,6 +1,6 @@
 // Created by Jianfeng Lin
 
-#include "../header/Inpatient.h"
+#include "Inpatient.h"
 #include <iostream>
 
 Inpatient::Inpatient(const std::string& _name, int _age, int _roomNumber)
