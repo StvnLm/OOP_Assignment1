@@ -1,6 +1,6 @@
 // Created by Jianfeng Lin
 
-#include "Outpatient.h"
+#include "../header/Outpatient.h"
 #include <iostream>
 
 Outpatient::Outpatient(const std::string& _name, int _age, const std::string& _appointmentDate)
