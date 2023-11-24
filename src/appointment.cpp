@@ -43,6 +43,7 @@ bool Appointment::isLeapYear(int year) const {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
+
 bool Appointment::isValidDate(int day, int month, int year) const {
     if (year < 1900 || year > 2100) return false; // Example year range
     if (month < 1 || month > 12) return false;
