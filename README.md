@@ -125,3 +125,200 @@ Test project C:/Users/Steven/Desktop/OOP/GroupProject1/build
 
 Total Test time (real) =   0.02 sec
 ```
+
+Running the application
+```
+# Compile SRC files with G++
+g++ -o main.exe .\src\*; .\main.exe
+```
+
+Running the program
+```
+PS C:\Users\Steven\Desktop\OOP\OOP_Assignment1_Backend> g++ -o main.exe .\src\*; .\main.exe
+
+Menu:
+1. Create Patient      
+2. Create Medical Staff
+3. Create Treatment    
+4. Create Appointment  
+5. Print Appointments  
+6. Remove Appointment  
+7. Exit
+Enter your choice: 1   
+
+Enter patient's name: Steven Lam
+Enter patient's age: 12
+Enter patient's gender: M
+Enter patient's illness: covid
+Is this an Inpatient? (Y/N): Y
+
+Menu:
+1. Create Patient      
+2. Create Medical Staff
+3. Create Treatment    
+4. Create Appointment  
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 1
+
+Enter patient's name: John Cewna
+Enter patient's age: 44
+Enter patient's gender: f
+Enter patient's illness: aids
+Is this an Inpatient? (Y/N): Y
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 2
+
+Enter staff name: Joy   
+Enter staff role/title: Nurse
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 2
+
+Enter staff name: Doug
+Enter staff role/title: janitor
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 2
+
+Enter staff name: Roy
+Enter staff role/title: Doctor
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 5
+
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 4
+
+Enter patient # to schedule for the appointment:
+0. Steven Lam
+1. John Cewna
+1
+Enter staff # to schedule for the appointment: 
+0. Joy
+1. Doug
+2. Roy
+1
+Enter month to schedule for appointment: 12
+Enter day to schedule for appointment: 12
+Enter year to schedule for appointment: 2022
+Enter hour to schedule for appointment: 12
+Enter minutes to schedule for appointment: 45
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 5
+
+-----------------------------
+Appointment calendar day 346
+-----------------------------
+Appointment day: 12/12/2022
+Appointment time: 12:45
+Patient name: John Cewna
+Assigned staff member: janitor Doug
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 4
+
+Enter patient # to schedule for the appointment:
+0. Steven Lam
+1. John Cewna
+0
+Enter staff # to schedule for the appointment: 
+0. Joy
+1. Doug
+2. Roy
+0
+Enter month to schedule for appointment: 4
+Enter day to schedule for appointment: 4
+Enter year to schedule for appointment: 2023
+Enter hour to schedule for appointment: 11
+Enter minutes to schedule for appointment: 50
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice: 5
+
+-----------------------------
+Appointment calendar day 94
+-----------------------------
+Appointment day: 4/4/2023
+Appointment time: 11:50
+Patient name: Steven Lam
+Assigned staff member: Nurse Joy
+-----------------------------
+Appointment calendar day 346
+-----------------------------
+Appointment day: 12/12/2022
+Appointment time: 12:45
+Patient name: John Cewna
+Assigned staff member: janitor Doug
+
+Menu:
+1. Create Patient
+2. Create Medical Staff
+3. Create Treatment
+4. Create Appointment
+5. Print Appointments
+6. Remove Appointment
+7. Exit
+Enter your choice:
+
+```
