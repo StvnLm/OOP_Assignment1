@@ -1,29 +1,22 @@
-#include "../header/inpatient.h"
-#include <string>
+// Created by Jianfeng Lin
 
-using namespace std;
+#include "../header/Inpatient.h"
+#include <iostream>
 
-Inpatient::Inpatient() : room_number(0), services_required() {
+Inpatient::Inpatient(const std::string& _name, int _age, int _roomNumber)
+    : Patient(_name, _age), roomNumber(_roomNumber) {}
+
+Inpatient::~Inpatient() {}
+
+void Inpatient::setRoomNumber(int _roomNumber) {
+    roomNumber = _roomNumber;
 }
 
-Inpatient::Inpatient(string name, int age, char gender, string ailment, int rn, vector<Patient_services>& services) :
- 										 Patient(name, age, gender, ailment), services_required(services), room_number(rn) {
+int Inpatient::getRoomNumber() const {
+    return roomNumber;
 }
 
-bool Inpatient::set_room_number(int n) {
-	room_number = n;
-	return room_number > 0;
-}
-
-bool Inpatient::set_services_required(vector<Patient_services> n) {
-	services_required = n;
-	return services_required.size() > 0;
-}
-
-int Inpatient::get_room_number() {
-	return room_number;
-};
-
-vector<Patient_services> Inpatient::get_services_required() {
-	return services_required;
+void Inpatient::displayInfo() const {
+    Patient::displayInfo();
+    std::cout << "Room Number: " << roomNumber << "\n";
 }
