@@ -19,6 +19,4 @@ int Inpatient::getRoomNumber() const {
 void Inpatient::displayInfo() const {
     Patient::displayInfo();
     std::cout << "Room Number: " << roomNumber << "\n";
-
 }
-
