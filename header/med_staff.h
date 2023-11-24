@@ -1,72 +1,61 @@
-#pragma once
-
 #ifndef MED_STAFF_H
 #define MED_STAFF_H
 
-#include<iostream>
-#include<string>
-#include<vector>
-#include<array>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <array>
 
-using namespace std;
-
-class MedicalStaff
-{
+class MedicalStaff {
 protected:
-	string name;
-	string specialty;
-	vector <array<int, 3>> schedule;
+    std::string name;
+    std::string specialty;
+    using ScheduleType = std::array<int, 3>; // Day, Hour, Minute
+    std::vector<ScheduleType> schedule;
+
 public:
-	MedicalStaff(string n, string s)
-	{
-		name = n;
-		specialty = s;
-	}
+    MedicalStaff(const std::string& n, const std::string& s) : name(n), specialty(s) {}
 
-	bool checkAvailability(int d, int h, int m)
-	{
-		for (int i = 0; i < schedule.size(); i++)
-		{
-			if (schedule[i][0] == d && schedule[i][1] == h && schedule[i][2] == m) return false; //if scheduled date already exists
-		}
-		schedule.push_back({ {d, h, m} });
-		return true;
-	}
+    bool isAvailable(int day, int hour, int minute) const {
+        for (const auto& timeSlot : schedule) {
+            if (timeSlot[0] == day && timeSlot[1] == hour && timeSlot[2] == minute) {
+                return false; // Appointment slot already taken
+            }
+        }
+        return true;
+    }
 
-	string getName() const
-	{
-		return name;
-	}
+    void addAppointment(int day, int hour, int minute) {
+        if (!isAvailable(day, hour, minute)) {
+            throw std::runtime_error("Time slot not available");
+        }
+        schedule.push_back({day, hour, minute});
+    }
 
-	string getSpecialty() const
-	{
-		return specialty;
-	}
+    std::string getName() const {
+        return name;
+    }
 
-	void displaySchedule() const
-	{
-		for (int i = 0; i < schedule.size(); i++)
-		{
-			cout << "\n" << "on day " << schedule[i][0] << " at " << schedule[i][1] << ":" << schedule[i][2];
-		}
-	}
+    std::string getSpecialty() const {
+        return specialty;
+    }
+
+    void displaySchedule() const {
+        for (const auto& timeSlot : schedule) {
+            std::cout << "\nOn day " << timeSlot[0] << " at " << timeSlot[1] << ":" << timeSlot[2];
+        }
+    }
 };
 
-class Doctor : public MedicalStaff
-{
+class Doctor : public MedicalStaff {
 public:
-	Doctor(string n, string s) : MedicalStaff(n, s)
-	{
-
-	}
+    Doctor(const std::string& name, const std::string& specialty) : MedicalStaff(name, specialty) {}
 };
 
-class Nurse : public MedicalStaff
-{
+class Nurse : public MedicalStaff {
 public:
-	Nurse(string n, string s) : MedicalStaff(n, s)
-	{
-
-	}
+    Nurse(const std::string& name, const std::string& specialty) : MedicalStaff(name, specialty) {}
 };
+
+
 #endif
