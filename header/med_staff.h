@@ -16,35 +16,12 @@ protected:
 public:
     MedicalStaff(const std::string& n, const std::string& s) : name(n), specialty(s) {}
 
-    bool isAvailable(int day, int hour, int minute) const {
-        for (const auto& timeSlot : schedule) {
-            if (timeSlot[0] == day && timeSlot[1] == hour && timeSlot[2] == minute) {
-                return false; // Appointment slot already taken
-            }
-        }
-        return true;
-    }
+    std::string getName() const;
+    std::string getSpecialty() const;
 
-    void addAppointment(int day, int hour, int minute) {
-        if (!isAvailable(day, hour, minute)) {
-            throw std::runtime_error("Time slot not available");
-        }
-        schedule.push_back({day, hour, minute});
-    }
-
-    std::string getName() const {
-        return name;
-    }
-
-    std::string getSpecialty() const {
-        return specialty;
-    }
-
-    void displaySchedule() const {
-        for (const auto& timeSlot : schedule) {
-            std::cout << "\nOn day " << timeSlot[0] << " at " << timeSlot[1] << ":" << timeSlot[2];
-        }
-    }
+    void displaySchedule() const;
+    bool isAvailable(int day, int hour, int minute); // Declaration for isAvailable
+    void addAppointment(int day, int hour, int minute); // Declaration for addAppointment
 };
 
 class Doctor : public MedicalStaff {
@@ -56,6 +33,5 @@ class Nurse : public MedicalStaff {
 public:
     Nurse(const std::string& name, const std::string& specialty) : MedicalStaff(name, specialty) {}
 };
-
 
 #endif
