@@ -51,6 +51,8 @@ bool Appointment::isValidDate(int day, int month, int year) const {
     return day > 0 && day <= monthLengths[month - 1];
 }
 
+
+
 bool Appointment::isValidTime(int hour, int min) const {
     return (hour >= 0 && hour < 24) && (min >= 0 && min < 60);
 }

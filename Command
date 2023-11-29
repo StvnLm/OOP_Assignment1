@@ -1,0 +1,5 @@
+(1)g++ -std=c++11 -o HospitalManagementSystem test/main.cpp src/Inpatient.cpp src/Outpatient.cpp src/Patient.cpp src/Medicalstaff.cpp
+
+
+
+(2).\HospitalManagementSystem.exe
